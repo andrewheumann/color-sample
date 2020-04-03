@@ -21,6 +21,8 @@
         var images = []
         var max_file_count = 31
         function imagePathForNumber(num) {
+            num = Math.max(0, num)
+            num = Math.min(max_file_count-1, num)
             return `Frame_${("00000" + num).slice(-5)}.png`
         }
 
