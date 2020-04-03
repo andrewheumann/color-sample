@@ -18,11 +18,27 @@
 
     <script type="text/JavaScript">
 
+        var images = []
+        var max_file_count = 31
+        function imagePathForNumber(num) {
+            return `Frame_${("00000" + num).slice(-5)}.png`
+        }
+
+        function preload() {
+            for (var i = 0; i < max_file_count; i++) {
+                images[i] = new Image()
+                var frame = imagePathForNumber(i)
+                images[i].src = `img1/${frame}`
+                images[i+max_file_count] = new Image()
+                images[i+max_file_count].src = `img2/${frame}`
+            }
+        }
+        preload()
+
         document.onmousemove = (event) => {
             var pos = 1 - event.clientX / window.innerWidth
-            var max_file_count = 31
             var fileToGet = Math.floor(pos * max_file_count)
-            var frame = `Frame_${("00000" + fileToGet).slice(-5)}.png`
+            var frame = imagePathForNumber(fileToGet)
             document.getElementById('img1').src = `img1/${frame}`
             document.getElementById('img2').src = `img2/${frame}`
             console.log(frame)
