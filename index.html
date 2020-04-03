@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Adamina&display=swap" rel="stylesheet"> -->
+
+
+    <script type="text/JavaScript">
+
+        document.onmousemove = (event) => {
+            var pos = 1 - event.clientX / window.innerWidth
+            var max_file_count = 31
+            var fileToGet = Math.floor(pos * max_file_count)
+            var frame = `Frame_${("00000" + fileToGet).slice(-5)}.png`
+            document.getElementById('img1').src = `img1/${frame}`
+            document.getElementById('img2').src = `img2/${frame}`
+            console.log(frame)
+        }
+     </script>
+
+    <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+    <div class="container">
+        <div class="vertical-center">
+            <img id="img1" src="img1/Frame_00000.png" />
+            <img id="img2" src="img2/Frame_00000.png" />
+        </div>
+    </div>
+</body>
+
+</html>
